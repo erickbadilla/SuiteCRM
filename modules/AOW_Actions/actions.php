@@ -42,7 +42,12 @@ $aow_actions_list[] = 'CreateRecord';
 $aow_actions_list[] = 'ModifyRecord';
 $aow_actions_list[] = 'SendEmail';
 $aow_actions_list[] = 'ComputeField';
-
+$aow_actions_list[] = 'PublishUnpublish';
+$aow_actions_list[] = 'CandidateApplicationNotification';
+$aow_actions_list[] = 'ManagerApplicationNotification';
+$aow_actions_list[] = 'PublishUnpublish';
+$aow_actions_list[] = 'StepsApplication';
+$aow_actions_list[] = 'AddProjectToEmployee';
 
 if (file_exists('custom/modules/AOW_Actions/Ext/Actions/actions.ext.php')) {
     require('custom/modules/AOW_Actions/Ext/Actions/actions.ext.php');
