@@ -363,3 +363,4 @@ function getPaginateHTML($queryString, $start, $amount, $total)
 }
 
 require_once __DIR__ . '/Search.php';
+require_once __DIR__ . '/Search.php';
