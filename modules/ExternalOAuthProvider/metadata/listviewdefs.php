@@ -1,14 +1,11 @@
 <?php
-if (!defined('sugarEntry') || !sugarEntry) {
-    die('Not A Valid Entry Point');
-}
 /**
  *
  * SugarCRM Community Edition is a customer relationship management program developed by
  * SugarCRM, Inc. Copyright (C) 2004-2013 SugarCRM Inc.
  *
  * SuiteCRM is an extension to SugarCRM Community Edition developed by SalesAgility Ltd.
- * Copyright (C) 2011 - 2018 SalesAgility Ltd.
+ * Copyright (C) 2011 - 2022 SalesAgility Ltd.
  *
  * This program is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Affero General Public License version 3 as published by the
@@ -40,10 +37,28 @@ if (!defined('sugarEntry') || !sugarEntry) {
  * reasonably feasible for technical reasons, the Appropriate Legal Notices must
  * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
+if (!defined('sugarEntry') || !sugarEntry) {
+    die('Not A Valid Entry Point');
+}
 
 
-global $mod_strings;
-echo getClassicModuleTitle('InboundEmail', array($mod_strings['LBL_MODULE_TITLE'], $mod_strings['LBL_HOME']), true);
-
-//echo getClassicModuleTitle($mod_strings['LBL_MODULE_TITLE'], array($mod_strings['LBL_MODULE_TITLE'],$mod_strings['LBL_HOME']), true);
-require_once('modules/InboundEmail/ListView.php');
+$module_name = 'ExternalOAuthProvider';
+$listViewDefs[$module_name] = [
+    'NAME' => [
+        'default' => true,
+        'link' => true,
+        'label' => 'LBL_NAME',
+    ],
+    'TYPE' => [
+        'default' => true,
+        'label' => 'LBL_TYPE',
+    ],
+    'CLIENT_ID' => [
+        'default' => true,
+        'label' => 'LBL_CLIENT_ID',
+    ],
+    'CREATED_BY_NAME' => [
+        'default' => true,
+        'label' => 'LBL_OWNER',
+    ],
+];
