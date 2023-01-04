@@ -5282,6 +5282,12 @@ class SugarBean
             // call the custom business logic
             $custom_logic_arguments['id'] = $id;
             $this->call_custom_logic("before_delete", $custom_logic_arguments);
+
+            if(isset($this->abort_mark_deleted)) {
+                unset($this->abort_mark_deleted);
+                return;
+            }
+
             $this->deleted = 1;
             $this->mark_relationships_deleted($id);
             if (isset($this->field_defs['modified_user_id'])) {

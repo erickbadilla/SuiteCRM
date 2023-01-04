@@ -89,5 +89,10 @@ $mod_strings = array(
     'LBL_COMPUTEFIELD_VALUE_TYPE' => 'Value type',
     'LBL_COMPUTEFIELD_RAW_VALUE' => 'Raw value',
     'LBL_COMPUTEFIELD_FORMATTED_VALUE' => 'Formatted value',
-    'LBL_COPY_EMAIL_ADDRESSES_WORKFLOW' => 'Copy emails from WorkFlow Module'
+    'LBL_COPY_EMAIL_ADDRESSES_WORKFLOW' => 'Copy emails from WorkFlow Module',
+    'LBL_PUBLISHUNPUBLISH' => 'Publish or Unpublish',
+    'LBL_CANDIDATEAPPLICATIONNOTIFICATION' => 'Candidate Application Notification',
+    'LBL_MANAGERAPPLICATIONNOTIFICATION' => 'Manager Application Notification',
+    'LBL_STEPSAPPLICATION' => 'Job Application Steps',
+    'LBL_ADDPROJECTTOEMPLOYEE' => 'Add Project To Employee'
 );
