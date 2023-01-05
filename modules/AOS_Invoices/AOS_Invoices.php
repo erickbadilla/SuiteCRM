@@ -54,15 +54,18 @@ class AOS_Invoices extends AOS_Invoices_sugar
                 unset($_POST['service_id']);
             }
 
-            if ($sugar_config['dbconfig']['db_type'] == 'mssql') {
-                $this->number = $this->db->getOne("SELECT MAX(CAST(number as INT))+1 FROM aos_invoices");
-            } else {
-                $this->number = $this->db->getOne("SELECT MAX(CAST(number as UNSIGNED))+1 FROM aos_invoices");
+            if($sugar_config['aos']['invoices']['autoNumber']==true){
+                if ($sugar_config['dbconfig']['db_type'] == 'mssql') {
+                    $this->number = $this->db->getOne("SELECT MAX(CAST(number as INT))+1 FROM aos_invoices");
+                } else {
+                    $this->number = $this->db->getOne("SELECT MAX(CAST(number as UNSIGNED))+1 FROM aos_invoices");
+                }
+
+                if ($this->number < $sugar_config['aos']['invoices']['initialNumber']) {
+                    $this->number = $sugar_config['aos']['invoices']['initialNumber'];
+                }
             }
 
-            if ($this->number < $sugar_config['aos']['invoices']['initialNumber']) {
-                $this->number = $sugar_config['aos']['invoices']['initialNumber'];
-            }
         }
 
         require_once('modules/AOS_Products_Quotes/AOS_Utils.php');
