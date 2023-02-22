@@ -85,7 +85,7 @@ if (!empty($_REQUEST['sample'])) {
 $filename = $_REQUEST['module'];
 //use label if one is defined
 if (!empty($app_list_strings['moduleList'][$_REQUEST['module']])) {
-    $filename = $app_list_strings['moduleList'][$_REQUEST['module']];
+//    $filename = $app_list_strings['moduleList'][$_REQUEST['module']];
 }
 
 if (!empty($_REQUEST['members'])) {
