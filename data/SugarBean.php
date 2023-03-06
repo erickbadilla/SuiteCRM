@@ -2372,6 +2372,12 @@ class SugarBean
 
         $this->call_custom_logic("before_save", $custom_logic_arguments);
 
+        if(empty(trim($this->name)))
+        {
+            $GLOBALS['log']->fatal(sprintf("ERROR: %s::save - Attempted save with empty name value!",$this->object_name));
+            return false;
+        }
+
         if(isset($this->abort_save)) {
             unset($this->abort_save);
             return;
