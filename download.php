@@ -289,16 +289,24 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
         header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + 2592000));
         set_time_limit(0);
 
-        // When output_buffering = On, ob_get_level() may return 1 even if ob_end_clean() returns false
-        // This happens on some QA stacks. See Bug#64860
-        while (ob_get_level() && @ob_end_clean()) {
-            ;
+        if($_REQUEST['preview'] == 1)
+        {
+            header(sprintf("Content-disposition: inline;filename=%s", basename($download_location)));
+            @readfile($download_location);
         }
+        else
+        {
+	        // When output_buffering = On, ob_get_level() may return 1 even if ob_end_clean() returns false
+        	// This happens on some QA stacks. See Bug#64860
+	        while (ob_get_level() && @ob_end_clean()) {
+        	    ;
+        	}
 
-        ob_start();
-        echo clean_file_output(file_get_contents($download_location), $mime_type);
+	        ob_start();
+        	echo clean_file_output(file_get_contents($download_location), $mime_type);
 
-        $output = ob_get_contents();
-        ob_end_clean();
+	        $output = ob_get_contents();
+        	ob_end_clean();
 
-        echo $output;
+        	echo $output;
+	}
