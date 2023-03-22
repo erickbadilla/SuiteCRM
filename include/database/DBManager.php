@@ -2230,7 +2230,7 @@ abstract class DBManager
                         return 0;
                     }
 
-                    return (float)$val;
+                    return $this->quoted(number_format(str_replace(',', '.', $val), 2, '.', ''));
                 case 'time':
                 case 'date':
                     // empty date can't be '', so convert it to either NULL or empty date value
