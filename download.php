@@ -291,7 +291,7 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
 
         if($_REQUEST['preview'] == 1)
         {
-            header(sprintf("Content-disposition: inline;filename=%s", basename($download_location)));
+            header(sprintf("Content-disposition: inline;filename=%s.pdf", basename($download_location)));
             @readfile($download_location);
         }
         else
