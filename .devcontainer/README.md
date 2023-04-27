@@ -24,6 +24,8 @@ The `config` folder inside `.devcontainer` contains a sample `php.ini` file with
 
 Also, there is a `sample.env`, copy it into `.env` and update the values as needed, this will be the name and user for the database. These values will be required when installing suiteCRM for the first time.
 
+Finally, copy the `launch.json` file located in the `.devcontainer` folder and place it in the `.vscode` directory. This will provide the configurations necessary for the xdebugger to work with VScode.
+
 _**NOTE: During the suiteCRM installation, the Host Name required for the database is the name of the docker compose service: `mariadb`**_
 
 ## To use it with VSCode
