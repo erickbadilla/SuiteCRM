@@ -43,9 +43,8 @@ if (!defined('sugarEntry') || !sugarEntry) {
  */
 
 
-if (class_exists('Template')) {
-    return;
-}
+if (!class_exists('Template')) {
+
 class Template
 {
     public function __construct()
@@ -60,3 +59,4 @@ class Template
     }
 }
 
+}
