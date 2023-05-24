@@ -469,7 +469,7 @@ SUGAR.subpanelUtils = function () {
             }
           }
           for (var i = 0; i < subPanels.length; i++) {
-            showSubPanel(subPanels[i], null, true);
+            window.setTimeout(showSubPanel(subPanels[i], null, true),500);
           }
           ajaxStatus.showStatus(SUGAR.language.get('app_strings', 'LBL_SAVED'));
           window.setTimeout('ajaxStatus.hideStatus()', 1000);
