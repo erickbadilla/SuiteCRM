@@ -82,7 +82,7 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
         $focus = BeanFactory::newBean($module);
         $focus->retrieve($_REQUEST['id']);
         if (!$focus->ACLAccess('view')) {
-            die($mod_strings['LBL_NO_ACCESS']);
+            die($mod_strings['LBL_NO_ACCESS']." You must enable 'view' permissions for the 'Notes' module.");
         } // if
         // Pull up the document revision, if it's of type Document
         if (isset($focus->object_name) && $focus->object_name == 'Document') {
@@ -291,7 +291,7 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
 
         if($_REQUEST['preview'] == 1)
         {
-            header(sprintf("Content-disposition: inline;filename=%s.pdf", basename($download_location)));
+            header(sprintf("Content-disposition: inline;filename=%s", basename($download_location)));
             @readfile($download_location);
         }
         else
