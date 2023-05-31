@@ -189,6 +189,7 @@ $layout_defs['Leads'] = array(
                     ),
             ),
         ),
+/*
         'campaigns' => array(
             'order' => 40,
             'module' => 'CampaignLog',
@@ -219,6 +220,7 @@ $layout_defs['Leads'] = array(
                         ),
                 ),
         ),
+*/
         'securitygroups' => array(
             'top_buttons' => array(array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'SecurityGroups', 'mode' => 'MultiSelect'),),
             'order' => 900,
