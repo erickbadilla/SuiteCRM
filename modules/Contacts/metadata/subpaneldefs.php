@@ -193,6 +193,7 @@ $layout_defs['Contacts'] = array(
                         ),
                 ),
         ),
+/*
         'leads' => array(
             'order' => 60,
             'module' => 'Leads',
@@ -210,6 +211,7 @@ $layout_defs['Contacts'] = array(
                 ),
             ),
         ),
+*/
         'opportunities' => array(
             'order' => 30,
             'module' => 'Opportunities',
