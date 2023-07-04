@@ -107,7 +107,11 @@ class EmployeesViewEdit extends ViewEdit
                 $this->ss->assign('DEPT_READONLY', $this->bean->department);
             }
         }
-
+        if (!$this->bean->ACLAccess('view') || !$this->bean->ACLAccess('save')) {
+            $noaccessView = new ViewNoaccess();
+            $noaccessView->display();
+            sugar_die('');
+        }
         parent::display();
     }
 }

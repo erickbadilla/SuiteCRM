@@ -53,6 +53,11 @@ class EmployeesViewList extends ViewList
         if (!$GLOBALS['current_user']->isAdminForModule('Users')) {
             $this->lv->multiSelect = false;
         }
+        if (!$this->bean->ACLAccess('view')) {
+            $noaccessView = new ViewNoaccess();
+            $noaccessView->display();
+            sugar_die('');
+        }
     }
 
     /**
