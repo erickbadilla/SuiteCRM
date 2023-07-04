@@ -128,7 +128,11 @@ EOHTML;
             $this->ss->assign('DELETE_WARNING', $deleteWarning);
         }
         $this->ss->assign('DISPLAY_DELETE', $showDeleteButton);
-
+        if (!$this->bean->ACLAccess('detail')) {
+            $noaccessView = new ViewNoaccess();
+            $noaccessView->display();
+            sugar_die('');
+        }
         parent::display();
     }
 }
