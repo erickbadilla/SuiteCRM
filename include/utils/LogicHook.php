@@ -74,19 +74,7 @@ class LogicHook
     {
     }
 
-    /**
-     * @deprecated deprecated since version 7.6, PHP4 Style Constructors are deprecated and will be remove in 7.8, please update your code, use __construct instead
-     */
-    public function LogicHook()
-    {
-        $deprecatedMessage = 'PHP4 Style Constructors are deprecated and will be remove in 7.8, please update your code';
-        if (isset($GLOBALS['log'])) {
-            $GLOBALS['log']->deprecated($deprecatedMessage);
-        } else {
-            trigger_error($deprecatedMessage, E_USER_DEPRECATED);
-        }
-        self::__construct();
-    }
+
 
 
     /**
@@ -191,7 +179,7 @@ class LogicHook
      *
      * @param string $module_dir
      * @param string $event
-     * @param array $arguments
+     * @param object|array $arguments
      * @param SugarBean $bean
      */
     public function call_custom_logic($module_dir, $event, $arguments = null)
@@ -221,7 +209,7 @@ class LogicHook
      *
      * @param array $hook_array
      * @param string $event
-     * @param array $arguments
+     * @param object|array $arguments
      * @param SugarBean $bean
      */
     public function process_hooks($hook_array, $event, $arguments)

@@ -363,7 +363,7 @@ class Importer
 
             if (isset($dbrow['id']) && $dbrow['id'] != -1) {
                 // if it exists but was deleted, just remove it
-                if (isset($dbrow['deleted']) && $dbrow['deleted'] == 1 && $this->isUpdateOnly ==false) {
+                if (isset($dbrow['deleted']) && $dbrow['deleted'] == 1) {
                     $this->removeDeletedBean($focus);
                     $focus->new_with_id = true;
                 } else {
@@ -501,7 +501,7 @@ class Importer
         * Bug 34854: Added all conditions besides the empty check on date modified.
         */
         if ((!empty($focus->new_with_id) && !empty($focus->date_modified)) ||
-             (empty($focus->new_with_id) && $timedate->to_db($focus->date_modified) != $timedate->to_db($timedate->to_display_date_time($focus->fetched_row['date_modified'])))
+             (is_array($focus->fetched_row) && empty($focus->new_with_id) && $timedate->to_db($focus->date_modified) != $timedate->to_db($timedate->to_display_date_time($focus->fetched_row['date_modified'])))
         ) {
             $focus->update_date_modified = false;
         }

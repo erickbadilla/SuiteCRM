@@ -261,9 +261,10 @@ class EditView
                     sugar_mkdir('modules/' . $this->module . '/metadata');
                 }
 
-                $fp = sugar_fopen('modules/' . $this->module . '/metadata/' . $metadataFileName . '.php', 'w');
-                fwrite($fp, $parser->parse($htmlFile, $dictionary[$focus->object_name]['fields'], $this->module));
-                fclose($fp);
+                sugar_file_put_contents(
+                    'modules/' . $this->module . '/metadata/' . $metadataFileName . '.php',
+                    $parser->parse($htmlFile, $dictionary[$focus->object_name]['fields'], $this->module)
+                );
             }
 
             // Flag an error... we couldn't create the best guess meta-data file
@@ -936,7 +937,7 @@ class EditView
         //if popup select add panel if user is a member of multiple groups to metadataFile
         global $sugar_config;
         if(isset($sugar_config['securitysuite_popup_select']) && $sugar_config['securitysuite_popup_select'] == true
-            && empty($this->focus->fetched_row['id']) && $this->focus->module_dir != "Users" && $this->focus->module_dir != "SugarFeed") {
+            && (empty($this->focus->fetched_row['id']) || $_REQUEST['isDuplicate'] == true) && $this->focus->module_dir != "Users" && $this->focus->module_dir != "SugarFeed") {
 
             //there are cases such as uploading an attachment to an email template where the request module may
             //not be the same as the current bean module. If that happens we can just skip it
