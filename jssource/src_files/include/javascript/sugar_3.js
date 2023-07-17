@@ -2998,7 +2998,8 @@ SUGAR.util = function () {
                   async: false,
                   method: 'GET'
                 }).done(function(responseText) {
-                  SUGAR.util.globalEval(responseText);
+		  console.log('prevent rebuild');
+                  // SUGAR.util.globalEval(responseText);
                 });
               })(srcResult);
             }

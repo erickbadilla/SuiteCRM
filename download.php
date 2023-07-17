@@ -82,7 +82,7 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
         $focus = BeanFactory::newBean($module);
         $focus->retrieve($_REQUEST['id']);
         if (!$focus->ACLAccess('view')) {
-            die($mod_strings['LBL_NO_ACCESS']);
+            die($mod_strings['LBL_NO_ACCESS']." You must enable 'view' permissions for the 'Notes' module.");
         } // if
         // Pull up the document revision, if it's of type Document
         if (isset($focus->object_name) && $focus->object_name == 'Document') {
@@ -206,7 +206,7 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
                 $mime_type = 'application/octet-stream';
             break;
         }
-        
+
         if ($doQuery && isset($query)) {
             $rs = DBManagerFactory::getInstance()->query($query);
             $row = DBManagerFactory::getInstance()->fetchByAssoc($rs);
@@ -261,11 +261,27 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
             }
         } else {
             header('Content-type: ' . $mime_type);
-            if (isset($_REQUEST['preview']) && $_REQUEST['preview'] === 'yes' && $mime_type !== 'text/html') {
+
+            $showPreview = false;
+
+            global $sugar_config;
+
+            $allowedPreview = $sugar_config['allowed_preview'] ?? [];
+
+            if (empty($row['file_ext'])) {
+                $row['file_ext'] = pathinfo($name, PATHINFO_EXTENSION);
+            }
+
+            if (in_array($row['file_ext'], $allowedPreview, true)) {
+                $showPreview = isset($_REQUEST['preview']) && $_REQUEST['preview'] === 'yes' && $mime_type !== 'text/html';
+            }
+
+            if ($showPreview === true) {
                 header('Content-Disposition: inline; filename="' . $name . '";');
             } else {
                 header('Content-Disposition: attachment; filename="' . $name . '";');
             }
+
         }
         // disable content type sniffing in MSIE
         header("X-Content-Type-Options: nosniff");
@@ -273,16 +289,24 @@ if ((!isset($_REQUEST['isProfile']) && empty($_REQUEST['id'])) || empty($_REQUES
         header('Expires: ' . gmdate('D, d M Y H:i:s \G\M\T', time() + 2592000));
         set_time_limit(0);
 
-        // When output_buffering = On, ob_get_level() may return 1 even if ob_end_clean() returns false
-        // This happens on some QA stacks. See Bug#64860
-        while (ob_get_level() && @ob_end_clean()) {
-            ;
+        if($_REQUEST['preview'] == 1)
+        {
+            header(sprintf("Content-disposition: inline;filename=%s", basename($download_location)));
+            @readfile($download_location);
         }
+        else
+        {
+	        // When output_buffering = On, ob_get_level() may return 1 even if ob_end_clean() returns false
+        	// This happens on some QA stacks. See Bug#64860
+	        while (ob_get_level() && @ob_end_clean()) {
+        	    ;
+        	}
 
-        ob_start();
-        echo clean_file_output(file_get_contents($download_location), $mime_type);
-        
-        $output = ob_get_contents();
-        ob_end_clean();
-        
-        echo $output;
+	        ob_start();
+        	echo clean_file_output(file_get_contents($download_location), $mime_type);
+
+	        $output = ob_get_contents();
+        	ob_end_clean();
+
+        	echo $output;
+	}

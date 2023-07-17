@@ -2373,6 +2373,19 @@ class SugarBean
 
 
         $this->call_custom_logic("before_save", $custom_logic_arguments);
+	/*
+        $saveBeansNoName = ['OAuth2Tokens'];
+        if(empty(trim($this->name)) && !in_array($this->object_name,$saveBeansNoName))
+        {
+            $GLOBALS['log']->fatal(sprintf("ERROR: %s::save - Attempted save with empty name value!",$this->object_name));
+            return false;
+        }
+	*/
+        if(isset($this->abort_save)) {
+            unset($this->abort_save);
+            return;
+        }
+
         unset($custom_logic_arguments);
 
         // If we're importing back semi-colon separated non-primary emails
@@ -5215,6 +5228,12 @@ class SugarBean
             // call the custom business logic
             $custom_logic_arguments['id'] = $id;
             $this->call_custom_logic("before_delete", $custom_logic_arguments);
+
+            if(isset($this->abort_mark_deleted)) {
+                unset($this->abort_mark_deleted);
+                return;
+            }
+
             $this->deleted = 1;
             $this->mark_relationships_deleted($id);
             if (isset($this->field_defs['modified_user_id'])) {

@@ -96,7 +96,16 @@ themes/SuiteP/css/*/*.map
 themes/SuiteP/css/*/color-palette.css
 themes/SuiteP/css/*/variables.css
 tests/_output/*
-
+modules/CC_*
+modules/CT_*
+modules/INVEN_*
+modules/CI_*
+modules/CH_*
+modules/CE_*
+modules/AR_*
+modules/IV_*
+publicUpload/**
+careers-suitecrm/
 
 #Ignore browserstack
 BrowserStackLocal
@@ -127,3 +136,5 @@ codeception.yml
 
 # Ignore database folder
 database/
+info.php
+sync*.php

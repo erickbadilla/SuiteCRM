@@ -263,6 +263,17 @@ class aSubPanel
             $buttons = $this->panel_definition [ 'top_buttons' ] ;
         }
 
+        $custom_elements = array_diff_assoc(
+            $this->panel_definition [ 'top_buttons' ],
+            $this->_instance_properties [ 'top_buttons' ]
+        );
+
+        if($custom_elements){
+            foreach ($custom_elements as $custom_element) {
+                $buttons[] = $custom_element;
+            }
+        }
+
         // permissions. hide SubPanelTopComposeEmailButton from activities if email module is disabled.
         //only email is  being tested because other submodules in activites/history such as notes, tasks, meetings
         // and calls cannot be disabled.
