@@ -63,12 +63,11 @@ $global_control_links['employees'] = array(
 'linkinfo' => array($app_strings['LBL_EMPLOYEES']=> 'index.php?module=Employees&action=index'),
 'submenu' => ''
 );
-if (
-        is_admin($current_user)
-
-        ) {
-    $global_control_links['admin'] = array(
-
+if (!ACLController::checkAccess('Employees', 'view') ) {
+    unset($global_control_links['employees']);
+}
+if (is_admin($current_user)) {
+$global_control_links['admin'] = array(
 'linkinfo' => array($app_strings['LBL_ADMIN'] => 'index.php?module=Administration&action=index'),
 'submenu' => ''
 );

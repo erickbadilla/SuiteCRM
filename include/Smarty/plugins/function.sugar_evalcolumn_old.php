@@ -82,10 +82,16 @@ function smarty_function_sugar_evalcolumn_old($params, &$smarty)
 function searchReplace($value, &$rowData) {
     preg_match_all('/\{\$(.*)\}/U', $value, $matches);
 
+    global $sugar_config;
+    $current_language = $sugar_config['default_language'];
+    $app_strings = return_application_language($current_language);
+
     for($wp = 0; $wp < count($matches[0]); $wp++) {
         if(isset($rowData[$matches[1][$wp]])) 
             $value = str_replace($matches[0][$wp], $rowData[$matches[1][$wp]], $value);
-        else 
+        else if((strpos($matches[1][$wp], 'APP.') !== FALSE) && isset($app_strings[str_replace('APP.', '', $matches[1][$wp])])) 
+            $value = str_replace($matches[0][$wp], $app_strings[str_replace('APP.', '', $matches[1][$wp])], $value);
+        else
             $value = str_replace($matches[0][$wp], '', $value);
     }
     return $value;
