@@ -1,0 +1,159 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+header {
+    color: #FFF;
+    margin: 0;
+    float: none;
+    padding: 1rem 0;
+    height: 9rem;
+}
+
+
+.jobApplicationPanelDetailsSelector{
+    margin-top: 5px !important;
+}
+
+.jobApplication-selectables-view-row{
+    margin: 0 0 8px 0;
+    min-width: 48px;
+    min-height: 30px;
+}
+
+#selectCandidateWrapper {
+    margin: 8px;
+}
+
+#selectJobOfferWrapper {
+    margin: 8px;
+}
+
+hr.divider {
+    border-color: rgba(129, 124, 141, 0.3) !important;
+    border-bottom: 1px solid;
+    height: 0px;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.user-input {
+    min-height: 33px;
+    border: 1px solid rgba(129, 124, 141, 0.3);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 4px;
+    padding: 8px 8px 6px;
+    width: 95%;
+}
+
+.user-input[type=title]{
+    font-family: Lato, Lato, Arial, sans-serif;
+    font-size: x-large;
+    border: none;
+}
+
+.ratingItemContainer{ background: linear-gradient( 87deg ,#2dce89,#2dcecc) !important; }
+.ratingItemContainerActive { background: linear-gradient( 87deg ,#11cdef,#1171ef) !important; }
+.ratingItemContainerWarning { background: linear-gradient( 87deg ,#fb6340,#fbb140) !important; }
+.ratingItemContainerExpired { background: linear-gradient( 87deg ,#f5365c,#f56036) !important; }
+.boxRating {
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
+    border-style: solid;
+    background-size: auto !important;
+    padding: 15px;
+    margin-bottom: 7px;
+    border-radius: 5px;
+}
+.boxRating p { font-size: 1.2em; }
+
+.ratingAreaContainer {
+    display: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.chartDetails {
+    font-family: Roboto, "Lato", Arial, sans-serif;
+    font-size: 1.5em;
+    display: block;
+    text-align: center;
+}
+#selected_project {
+    width: 96%;
+    height: 34px;
+}
+
+.tabTitle {
+    background-color: #f0f0f0;
+    width: 100%;
+    display: block;
+    margin-top: 15px;
+    margin-bottom: 15px;
+    font-family:  Roboto, "Lato", Arial, sans-serif;
+    font-size: 1.5em;
+    padding: 5px;
+}
+
+select[name="dataTableResourceDetails_length"]{
+    width: 65px;
+}
+
+select[name="dataTableActivityDetails_length"]{
+    width: 65px;
+}
+
+.hiddenTable {
+    display: none;
+}
+
+.empty-state {
+    width: 100%;
+    margin: 40px auto;
+}
+
+.empty-state__content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.empty-state__icon {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    border-radius: 200px;
+    justify-content: center;
+    background-color: #f7fafc;
+}
+
+.empty-state__message {
+    color: #567c69;
+    font-size: 2em;
+    font-weight: 500;
+    margin-top: 0.85rem;
+}
+
+.empty-state__help {
+    color: #a2a5b9;
+    font-size: 1.5rem;
+}
+.dt-button-collection {
+    margin-top: 4px !important;
+}
+
+div[role=menu] button.dt-button {
+    background: #aaa;
+}
+
+div[role=menu] button.dt-button.active {
+    background:#b8cc33;
+}
+
+@media only screen and (min-width: 1280px) {
+    /* For desktop: */
+    .dt-buttons {
+        margin-bottom: -30px;
+    }
+}

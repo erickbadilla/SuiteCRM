@@ -1,0 +1,1 @@
+sudo cp js/*.js /var/www/suitecrm/modules/CC_Training_Certifications/js/

@@ -1,0 +1,55 @@
+
+.inlineEditIcon {
+    color: #f08377;
+    padding-left: 3px;
+    float: right;
+    width: 15px;
+    height: 10px;
+}
+
+.inlineEditIcon svg {
+    display: none;
+    fill: #f08377;
+}
+
+.inlineEdit:hover .inlineEditIcon svg {
+    display: inline;
+    cursor: pointer;
+}
+
+
+
+div.dt-buttons {
+    position: absolute!important;
+    left: 13em;
+}
+
+.dt-buttons::before {
+    content: "Export:";
+    margin-right: 1em;
+    font-weight: 700;
+}
+
+@media only screen and (max-width: 720px){
+    div.dt-buttons {
+        position: relative!important;
+        left: 0em;
+    }
+}
+
+.other_info{
+    border: none;
+    background: none;
+}
+
+.change_select, #slc_education{
+    width: 100%;
+}
+
+.modal.in .modal-dialog{
+    width: 1000px;
+}
+
+.form-group {
+padding: 0px 20px;
+}

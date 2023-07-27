@@ -1,0 +1,428 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+header {
+    color: #FFF;
+    margin: 0;
+    float: none;
+    padding: 1rem 0;
+    height: 9rem;
+}
+
+#steps {
+    float: left;
+    position: relative;
+    padding-right: 0.7em;
+    width: 100%;
+}
+
+#steps div {
+    float: left;
+    padding: 0.4em;
+    margin: 0.6em;
+    box-sizing: border-box;
+    font-size: 1.4em;
+    line-height: 0.7em;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+}
+
+#steps div p{
+    flex: 1;
+    font-size: 0.7em;
+    line-height: 1em;
+    justify-content: flex-start;
+    padding-left: 1.1em;
+}
+
+
+#steps div.active {
+    color:  #FFF;
+    background-color: #38e;
+    box-shadow: inset 0 0 0 #38e;
+}
+
+#steps div.active:before {
+    content: '';
+    position: absolute;
+    right: -1em;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 1em solid #38e;
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+}
+
+#steps div.done {
+    color: #FFF;
+    box-shadow: inset -15em 0 0 #5fad65;
+}
+
+#steps div.done:before {
+    content: '';
+    position: absolute;
+    right: -1em;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 1em solid #5fad65;
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+}
+
+.article_container {
+    display: flex;
+    float: none;
+    position: relative;
+    width: 100%;
+    height: 20em;
+    min-height: 20em;
+}
+
+article {
+    width: 100%;
+    top: 0;
+    position: absolute;
+    background-color: #fff;
+    border-radius: 4px;
+    box-shadow: -0.25rem 0.25rem 0.25rem rgba(0,0,0,0.1), 0.25rem 0.25rem 0.25rem rgba(0,0,0,0.1), 0 0.25rem 0.25rem rgba(0,0,0,0.1);
+}
+article.active_m_2 {
+    left: -110vw;
+    opacity: 0;
+}
+article.active_m_1 {
+    left: -110%;
+    opacity: 0.3;
+}
+article.active {
+    left: 0;
+    opacity: 1;
+}
+article.active_p_1 {
+    left: 110%;
+    opacity: 0.3;
+}
+article.active_p_2 {
+    left: 110vw;
+    opacity: 0;
+}
+
+article * {
+    box-sizing: border-box;
+    width: 100%;
+    margin: 0;
+}
+
+
+
+article h2 {
+    background-color: #38e;
+    color: #fff;
+    font-size: 1.5rem;
+    padding: 5pt;
+    letter-spacing: 0.25rem;
+    border-radius: 4px 4px 0 0;
+}
+article p {
+    width: 100%;
+    line-height: 1.2rem;
+}
+
+.padding_container {
+    padding: 1em;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+* {
+    transition: all 1000ms;
+}
+
+.calweekdaycell {
+    transition: none;
+}
+
+.jobApplicationPanelDetailsSelector{
+    margin-top: 5px !important;
+}
+
+.jobApplication-selectables-view-row{
+    margin: 0 0 8px 0;
+    min-width: 48px;
+    min-height: 30px;
+}
+
+#selectCandidateWrapper {
+    margin: 8px;
+}
+
+#selectJobOfferWrapper {
+    margin: 8px;
+}
+
+hr.divider {
+    border-color: rgba(129, 124, 141, 0.3) !important;
+    border-bottom: 1px solid;
+    height: 0px;
+    clear: both;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.user-input {
+    min-height: 33px;
+    border: 1px solid rgba(129, 124, 141, 0.3);
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border-radius: 4px;
+    padding: 8px 8px 6px;
+    width: 95%;
+}
+
+.user-input[type=title]{
+    font-family: Lato, Lato, Arial, sans-serif;
+    font-size: x-large;
+    border: none;
+}
+
+.ApplicationRatingBase{ background: linear-gradient( 87deg ,#2dce89,#2dcecc) !important; }
+.ApplicationRatingActive { background: linear-gradient( 87deg ,#11cdef,#1171ef) !important; }
+.ApplicationRatingWarning { background: linear-gradient( 87deg ,#fb6340,#fbb140) !important; }
+.ApplicationRatingExpired { background: linear-gradient( 87deg ,#f5365c,#f56036) !important; }
+.boxRating {
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 4px 4px 0px;
+    border-style: solid;
+    background-size: auto !important;
+    padding: 15px;
+    margin-bottom: 7px;
+    border-radius: 5px;
+}
+.boxRating p { font-size: 1.2em; }
+
+.ratingAreaContainer {
+    display: none;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.dataTables_length > label > select {
+    width: 60px;
+    height: 35px;
+}
+
+.group {
+    text-align: center;
+}
+
+
+.arrow-pointer {
+    width: 9em;
+    height: 2em;
+    background: #32557f;
+    position: relative;
+}
+
+.arrow-pointer:after {
+    content: '';
+    right: -1em;
+    position: absolute;
+    left: 0; bottom: 0; width: 0; height: 0;
+    border-left: 1em solid rgb(245, 245, 245);
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+}
+
+.arrow-pointer:before {
+    content: '';
+    position: absolute;
+    right: -1em;
+    bottom: 0;
+    width: 0;
+    height: 0;
+    border-left: 1em solid #32557f;
+    border-top: 1em solid transparent;
+    border-bottom: 1em solid transparent;
+}
+
+.action_test_text{
+    margin-bottom: 5px;
+}
+
+.container_div_section_shedule_tec{
+    border-right: lightgray 1px solid;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.container_div_section_text{
+    border-right: lightgray 1px solid;
+    min-height: 80px;
+    padding-left: 10px;
+    padding-right: 10px;
+    
+}
+
+.inputs_variable_key{
+    margin-top: 15px;
+}
+
+/*.select2-container {
+    width: 90% !important;
+}*/
+
+.select2-container .select2-selection--single {
+    height: 34px;
+    padding-top: 2px;
+   
+  }
+  
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+   margin-top: 2px;
+}
+
+/*.input-group-addon{
+    font-size: 12px !important;
+}*/
+
+  
+
+/* Phone Portrait */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    #steps div {
+        margin: 0.5em
+    }
+    .arrow-pointer {
+        width: 7em;
+    }
+    #steps div p {
+        font-size: 0.5em;
+        line-height: 1em;
+        padding-left: 1.2em;
+    }
+
+}
+
+/* Phone Landscape */
+@media only screen
+and (min-device-width: 320px)
+and (max-device-width: 480px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+    #steps div p {
+        font-size: 0.5em;
+        line-height: 1em;
+        padding-left: 1.2em;
+    }
+}
+
+.dt-body-rating {
+    display: inline-block;
+    margin-left: 1rem;
+}
+
+h4.panel-title > a::before{
+    display: none;
+}
+
+h4.panel-title > a::after{
+    float: right;
+    content: "_";
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 1em;
+    margin-top: -0.2em;
+}
+
+h4.panel-title > a.collapsed::after{
+    float: right;
+    content: "+";
+    font-size: 20px;
+    font-weight: 900;
+    margin-right: 1em;
+    margin-top: 0.2em;
+}
+
+.create-note, .create-intresult{
+    background-color: #94a6b5;
+    border-radius: 3px;
+    color: white;
+    font-weight: bold;
+    margin-left: 5px;
+    border: #94a6b5;
+    padding: 5px 15px;
+}
+
+#QuickCreate{
+    display: none;
+}
+
+#whole_subpanel_cc_job_applications_notes, 
+#whole_subpanel_cc_job_applications_cc_job_application_interview, 
+#whole_subpanel_cc_job_applications_cc_job_application_interviewer,
+#whole_subpanel_cc_job_applications_cc_application_stage{
+    display: none!important;
+}
+
+.td_delete_profile{
+    text-align: center;
+}
+
+
+<!--spinning-->
+.glyphicon.spinning {
+    animation: spin 1s infinite linear;
+    -webkit-animation: spin2 1s infinite linear;
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg); }
+    to { transform: scale(1) rotate(360deg); }
+}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg); }
+    to { -webkit-transform: rotate(360deg); }
+}
+
+
+textarea{
+    width: 90%;
+}
+
+#txt_interview_date{
+    width: 70%;
+}
+
+@media only screen
+and (max-width: 978px){
+    .article_container {
+        height: 50em;
+        min-height: 50em;
+    }
+}
+
+#getPDF a {
+    text-decoration: none;
+    cursor: pointer;
+    left: 20px;
+    position: relative;
+    padding: 10px;
+    top: 10px;
+}
+
+.colum-name{
+    width: 38% !important;
+}
+
+.colum-role{
+    width: 54% !important;
+}

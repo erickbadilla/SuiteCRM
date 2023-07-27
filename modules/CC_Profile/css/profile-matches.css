@@ -1,0 +1,83 @@
+.tabs {
+    margin-top: 6px;
+}
+
+.tab-list {
+    padding-bottom: 0;
+}
+
+.tab {
+    display: inline-block;
+    border: 1px solid transparent;
+    border-radius: 4px 4px 0 0;
+    padding: .5rem 1rem;
+    font-size: 13px;
+    font-weight: 400;
+    color: #B8CC33;
+    cursor: pointer;
+    margin: 0 2px 0 0;
+    letter-spacing: 2px;
+    line-height: 20px;
+}
+
+.tab.active {
+    color: white;
+    background: #B8CC33;
+}
+
+.tab-content.matcher {
+    background: #fff;
+    border-top: 1px solid #bbb;
+    display: none;
+    padding: .2rem;
+}
+
+.tab-content.matcher.show {
+    display: block;
+}
+
+button:focus {
+    outline: 0;
+}
+
+@media screen and (max-width: 460px) {
+    .list tr th, .list tr th a:link, .skillTable {
+        padding: 10px 0px 10px 0px;
+        font-size: 11px;
+    }
+}
+
+.dt-buttons button{
+    font-size: 13px;
+    font-weight: 500;
+    background: #B8CC33;
+    color: #FFF;
+    cursor: pointer;
+    padding: 0 10px 0 10px;
+    margin: 0 0 0 0;
+    border: none;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    line-height: 34px;
+    height: 35px;
+    text-transform: uppercase;
+}
+
+.dt-button-collection {
+    margin-top: 4px !important;
+}
+
+div[role=menu] button.dt-button {
+    background: #aaa;
+}
+
+div[role=menu] button.dt-button.active {
+    background:#b8cc33;
+}
+
+@media only screen and (min-width: 1280px) {
+    /* For desktop: */
+    .dt-buttons {
+        margin-bottom: 10px;
+    }
+}

@@ -1,0 +1,80 @@
+.hiddenTable {
+    display: none;
+}
+
+.empty-state {
+    width: 100%;
+    margin: 40px auto;
+}
+
+.empty-state__content{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.empty-state__icon {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    border-radius: 200px;
+    justify-content: center;
+    background-color: #f7fafc;
+}
+
+.empty-state__message {
+    color: #567c69;
+    font-size: 2em;
+    font-weight: 500;
+    margin-top: 0.85rem;
+}
+
+.empty-state__help {
+    color: #a2a5b9;
+    font-size: 1.5rem;
+}
+
+.ar-col-status-Running {
+    color: lawngreen;
+    font-weight: bold;
+}
+
+div.ar-col-status-Running a{
+    color: #3d7300;
+    font-weight: bold;
+}
+
+.ar-col-status-Paused {
+    color: #ff8000;
+}
+
+div.ar-col-status-Paused a{
+    color: #A25000;
+}
+
+.ar-col-status-Completed {
+    color: black;
+}
+
+div.ar-col-status-Completed a{
+    color: black;
+}
+
+
+
+.ar-icon{
+    cursor: pointer;
+}
+
+.ar-iconRunningRunning {
+    background-color: lawngreen;
+}
+
+.ar-iconPausedPaused {
+    background-color: rgb(255 128 0 / 40%);
+}
+
+.ar-iconCompletedCompleted {
+    background-color: transparent;
+}

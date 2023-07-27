@@ -1,0 +1,3 @@
+li.actionmenulinks:not(:last-child),.navbar-inverse .dropdown-menu li > ul >li:not(:last-child) {
+    display: none;
+}

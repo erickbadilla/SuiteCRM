@@ -1,0 +1,244 @@
+.title_job_appplications{
+  padding-bottom: 5px;
+}
+
+
+.content .nav-tabs > li > a{
+ background-color: transparent;
+ color: black;
+
+}
+
+.content .nav-tabs li:not(.active) > a:hover {
+ background-color: #f2f2f2;
+ color: black;
+}
+
+.select2-container .select2-selection--single {
+ height: 34px;
+ padding-top: 2px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+ margin-top: 2px;
+}
+
+
+/*.content .nav-tabs > li.active > a{
+ 
+ all: revert;
+ color: blue;
+ border-bottom: 4px solid;
+
+}*/
+
+
+.heading_new_styles{
+  all: revert !important;
+  background-color: #f2f2f2  !important;
+  padding-top: 5px  !important;
+  padding-bottom: 10px  !important;
+  color:#534d64  !important;
+}
+
+.panel-title{
+ padding-top: 5px ;
+}
+
+.panel-body{
+padding:10px;
+}
+
+.panel-heading a {
+ text-transform: capitalize;
+}
+
+.panel-heading a:hover{
+ color: #2E2C2C;
+}
+
+/*  styles add selected2 */
+.select2-container{
+ width: 100% !important;
+}
+
+
+/*  end  styles add selected2 */
+
+.panel-heading a.collapsed {
+   background-color: transparent;
+}
+
+.panel-heading a:before {
+   line-height: 20px;
+}
+
+.panel-heading > h4  {
+   text-transform: uppercase;
+}
+
+.columna{
+   background-color:#F8F9F9;
+   padding-left: 1vw;
+   padding-right: 1vw;
+   padding-top: 1.5vh;
+   padding-bottom: 1.5vh;
+   min-height: 445px;
+}
+
+
+.container_right{
+   margin-left:0.8vw;
+   margin-bottom: 2vh;
+}
+
+.container_left{
+   margin-right:0.8vw;
+   margin-bottom: 2vh;
+}
+
+.header_content{
+ background-color: #f2f2f2;
+ padding: 15px;
+}
+
+.title_profile_summary{
+ font-size: 17px;
+   font-weight: bold;
+}
+
+.dataTables_wrapper .dataTables_length select{
+  all: reverse !important;
+}
+
+.td_column_defs{
+ width: 30px;
+ text-align: center;
+}
+
+.td_column_defs_start{
+ width: 75px;
+ text-align: center;
+}
+
+
+tr.group,
+tr.group:hover {
+   background-color: #ddd !important;
+}
+
+.body_content_section{
+ margin-top: 25px;
+}
+
+.td_delete_profile{
+ text-align: center;
+}
+
+.td_dependecy{
+ text-align: center;
+ width: 180px ;
+}
+
+.select_table{
+ width: auto;
+}
+
+.dt-body-rating{
+  text-align: center;
+}
+
+.view_rating{
+ text-align: center;
+}
+
+.dt-body-rating-candidate{
+ width: 255px !important;
+ text-align: center;
+
+}
+
+.dt-body-rating-applications_qualifications{
+ text-align: center;
+ width: 200px;
+}
+
+.dt-body-rating-applications_skill{
+ text-align: center;
+ width: 200px;
+}
+
+.dt-body-rating-employee{
+ text-align: center;
+ width: 230px;
+}
+
+.td_name_jon_applications{
+ width: 230px;
+}
+.td_name_table_rating_application{
+ width: 200px;
+}
+
+.td_name_external_employees{
+ width: 400px;
+}
+
+/* part tablet */
+@media only screen and (max-width: 991px) {
+   .container_right{
+       margin-top:3vh;
+       margin-left:0px;
+       margin-bottom: 0px;
+
+   }
+
+   .container_left{
+       margin-top:3vh;
+       margin-right:0px;
+       margin-bottom: 0px;
+   }
+
+}
+
+
+/* part mobile */
+@media only screen and (max-width: 767px){
+  .container_right{
+      margin-top:3vh;
+      margin-left:0px;
+  }
+  .container_left{
+   margin-top:3vh;
+   margin-right:0px;
+  }
+
+
+}
+
+
+.select2-container--default .select2-selection--single {
+ border: 1px solid #a5e8d6;
+}
+
+.select2-container--open .select2-selection--single .select2-selection__arrow b,
+.select2-container--default .select2-selection--single .select2-selection__arrow b{
+ border-color: white transparent;
+ border-width: 9px 7px 0 7px;
+ margin-left: -7px;
+ margin-top: -3px;
+}
+
+
+.select2-container--default .select2-selection--single .select2-selection__arrow{
+   background: #a5e8d6;
+   margin: 0px !important;
+   height: 32px;
+   width: 30px;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__placeholder{
+   color: #534d64;
+   margin-right: 20px;
+}
+ 

@@ -1,0 +1,22 @@
+select[name="dataTableProjectActivities_length"]{
+    width: 65px;
+}
+
+.dt-button-collection {
+    margin-top: 4px !important;
+}
+
+div[role=menu] button.dt-button {
+    background: #aaa;
+}
+
+div[role=menu] button.dt-button.active {
+    background:#b8cc33;
+}
+
+@media only screen and (min-width: 1280px) {
+    /* For desktop: */
+    .dt-buttons {
+        margin-bottom: -30px;
+    }
+}

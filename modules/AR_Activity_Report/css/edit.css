@@ -1,0 +1,175 @@
+#overview{
+  float:left;
+  width: 70%; 
+  margin-right:10px;
+  border-radius:4px;
+}
+
+
+#related{
+  float:left;
+  width: 25%;
+}
+
+.activityR, .custom-file-upload {
+  width: 40%;
+  border-radius: 5px;
+  color: white;
+  background-color: #6FC0C2;
+  padding: 10px;
+  border: transparent;
+  font-weight: 700;
+  font-size: 16px;
+}
+
+#wrap_Buttons{
+   display: flex;
+   justify-content: center;
+   flex-direction: column;
+   align-content: center;
+   flex-wrap: wrap;
+}
+
+#save_ar{
+  height: 20px;
+  line-height: 0px;
+  display: inline;
+  float: right;
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.attachedFiles{
+  display: inline-table;
+  width: 30%;
+}
+
+#fileList{
+  padding: 0px 0px 20px 40px;
+}
+
+.addParticipant{
+  width: 30%;
+  margin-right: 30%;
+  margin-left: 15%;
+}
+
+.related{
+  width: 70%;
+}
+
+#subject, #agenda{
+  width: 95%;
+}
+
+
+.select2-container--default .select2-selection--single{
+ height: 35px;
+ border: 1px solid #000;
+}
+.select2-container--default .select2-selection--single .select2-selection__rendered {
+ line-height: 35px;
+}
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+ height: 34px;
+ right: 5px;
+}
+.select2-container--default .select2-selection--single .select2-selection__clear {
+ height: 35px;
+ margin-right: 30px;
+}
+
+select.ui-widget-content {
+ line-height: 16px;
+}
+
+select#gs_project_name {
+ max-width: 180px;
+}
+
+.ui-widget-content {
+ background: none;
+ line-height: 16px;
+}
+
+.ui-widget-content .jqgroup {
+ background-color: #fff !important;
+ line-height: 25px;
+ color: #333333FF;
+ opacity: 1 !important;
+}
+
+.ui-jqgrid tr.jqgroup span {
+ margin-top: 4px;
+}
+
+.ui-jqgrid-table-striped > tbody > tr:nth-of-type(odd) {
+ opacity: .6;
+ background-color: #ddddddad;
+}
+
+.ui-widget-content .jqfoot{
+ background-color: #fff !important;
+ opacity: 1 !important;
+}
+
+.ui-widget-content .jqfoot td span{
+ color: #0c0c0c !important;
+}
+
+
+.ui-state-highlight, .ui-widget-content .ui-state-highlight, .ui-widget-header .ui-state-highlight {
+ border: 1px solid #0f8f07;
+ background-color: #3b8a3dd1 !important;
+ color: #f8f8f8;
+ background: none;
+}
+
+#dataTableActivityReport_length > label >select{
+ padding: 1px 40px 1px 4px!important;
+}
+
+.tooltip .tooltip-content {
+  visibility: hidden;
+  display: block;
+  padding: 10px;
+  background-color: #333;
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+  margin-top: 20px;
+  max-width: 200px;
+}
+
+.tooltip:hover .tooltip-content {
+  visibility: visible;
+}
+
+
+.tooltip .tooltip-content2 {
+  visibility: hidden;
+  padding: 10px;
+  background-color: rgb(148, 146, 146);
+  border-radius: 10px;
+  color: #fff;
+  position: absolute;
+  z-index: 1;
+  margin-top: 20px;
+  max-width: 200px;
+}
+
+.tooltip:hover .tooltip-content2 {
+  visibility: visible;
+}
+
+
+#dataTableActivityReport_wrapper{
+  position: static!important;
+}
+
+table.duties_participant > tbody > tr > td {
+  padding-right: 10px;
+  padding-top: 5px;
+}
