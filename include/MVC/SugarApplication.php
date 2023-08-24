@@ -615,7 +615,7 @@ class SugarApplication
 
         //set session expired message if login module and action are set to a non login default
         //AND session id in cookie is set but super global session array is empty
-        if (isset($_REQUEST['login_module']) && $_REQUEST['login_module'] !== "" && isset($_REQUEST['login_action']) && $_REQUEST['login_action'] !== "" && !($_REQUEST['login_module'] == $default_module && $_REQUEST['login_action'] == 'index')) {
+        if (isset($_REQUEST['login_module']) && isset($_REQUEST['login_action']) && !($_REQUEST['login_module'] == $default_module && $_REQUEST['login_action'] == 'index')) {
             if (!is_null($sessionIdCookie) && empty($_SESSION)) {
                 self::setCookie('loginErrorMessage', 'LBL_SESSION_EXPIRED', time() + 30, '/');
             }
