@@ -103,7 +103,7 @@
             <br>
             <div class="input-group">
                 <input type="password" class="form-control"
-                       placeholder="{sugar_translate module="Users" label="LBL_PASSWORD"}" tabindex="2"
+                       placeholder="{sugar_translate module="Users" label="LBL_PASSWORD"}" required tabindex="2"
                        id="username_password" name="username_password" value='{$LOGIN_PASSWORD}' autocomplete="off">
             </div>
             <br>
