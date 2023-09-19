@@ -45,6 +45,21 @@ if (!defined('sugarEntry') || !sugarEntry) {
 
 class EmployeesViewList extends ViewList
 {
+
+    private $finance_role = 'New Finance';
+
+    public function is_finance(){
+        global $current_user;
+        $roleBean = BeanFactory::getBean('ACLRoles');
+        $userRoles = $roleBean->getUserRoles($current_user->id);
+        if ($userRoles) {
+            if(in_array($this->finance_role, $userRoles)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public function preDisplay()
     {
         $this->lv = new ListViewSmarty();
@@ -58,6 +73,12 @@ class EmployeesViewList extends ViewList
             $noaccessView->display();
             sugar_die('');
         }
+	if ($this->is_finance()) {
+            $noaccessView = new ViewNoaccess();
+            $noaccessView->display();
+            sugar_die('');
+        }
+
     }
 
     /**
