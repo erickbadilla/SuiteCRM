@@ -2239,7 +2239,7 @@ abstract class DBManager
                         return 0;
                     }
 
-                    return $this->quoted(number_format(str_replace(',', '.', $val), 2, '.', ''));
+                    return $this->quoted(number_format(str_replace(',', '.', $val), $fieldDef['precision'], '.', ''));
                 case 'time':
                 case 'date':
                     // empty date can't be '', so convert it to either NULL or empty date value
