@@ -46,32 +46,31 @@ if (!defined('sugarEntry') || !sugarEntry) {
 class EmployeesViewEdit extends ViewEdit
 {
     public $useForSubpanel = true;
+
     private $finance_role = 'New Finance';
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
     }
 
-    public function is_finance(){
-        global $current_user;
-        $roleBean = BeanFactory::getBean('ACLRoles');
-        $userRoles = $roleBean->getUserRoles($current_user->id);
-        if ($userRoles) {
-            if(in_array($this->finance_role, $userRoles)) {
-                return true;
-            }
-        }
-        return false;
-    }
-
+    public function is_finance(){
+         global $current_user;
+         $roleBean = BeanFactory::getBean('ACLRoles');
+         $userRoles = $roleBean->getUserRoles($current_user->id);
+         if ($userRoles) {
+             if(in_array($this->finance_role, $userRoles)) {
+                 return true;
+             }
+         }
+         return false;
+    }
 
     public function display()
     {
 	if ($this->is_finance()) {
-            $noaccessView = new ViewNoaccess();
-            $noaccessView->display();
-            sugar_die('');
-        }
+	    $noaccessView = new ViewNoaccess();
+	    $noaccessView->display();
+	    sugar_die('');
+	}
 
         if (is_admin($GLOBALS['current_user'])) {
             $json = getJSONobj();

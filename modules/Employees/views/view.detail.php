@@ -46,23 +46,23 @@ if (!defined('sugarEntry') || !sugarEntry) {
 
 class EmployeesViewDetail extends ViewDetail
 {
+
     private $finance_role = 'New Finance';
-    public function __construct()
-    {
+    public function __construct(){
         parent::__construct();
     }
 
-    public function is_finance(){
-        global $current_user;
-        $roleBean = BeanFactory::getBean('ACLRoles');
-        $userRoles = $roleBean->getUserRoles($current_user->id);
-        if ($userRoles) {
-            if(in_array($this->finance_role, $userRoles)) {
-                return true;
-            }
-        }
-        return false;
-    }
+    public function is_finance(){
+         global $current_user;
+         $roleBean = BeanFactory::getBean('ACLRoles');
+         $userRoles = $roleBean->getUserRoles($current_user->id);
+         if ($userRoles) {
+             if(in_array($this->finance_role, $userRoles)) {
+                 return true;
+             }
+         }
+         return false;
+    }
 
     /**
      * Return the "breadcrumbs" to display at the top of the page
@@ -76,11 +76,11 @@ class EmployeesViewDetail extends ViewDetail
 
         $theTitle = "<div class='moduleTitle'>\n";
 
-	if ($this->is_finance()) {
-            $noaccessView = new ViewNoaccess();
-            $noaccessView->display();
-            sugar_die('');
-        }
+        if ($this->is_finance()) {
+	    $noaccessView = new ViewNoaccess();
+	    $noaccessView->display();
+	    sugar_die('');
+	}
 
         $module = preg_replace("/ /", "", $this->module);
 
