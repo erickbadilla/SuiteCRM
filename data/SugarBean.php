@@ -784,6 +784,24 @@ class SugarBean
         }
     }
 
+
+    /**
+     * @param string $query
+     * @return false|string
+     */
+    private static function removeEdgeParentheses($str_query){
+        // Trim whitespace first
+        $query = trim($str_query);
+
+        // Check if the string starts with '(' and ends with ')'
+        if (substr($query, 0, 1) === '(' && substr($query, -1) === ')') {
+            // Remove the leading and trailing parentheses
+            $query = substr($query, 1, -1);
+        }
+        return $query;
+    }
+
+
     /**
      * Constructs a query to fetch data for subpanels and list views
      *
@@ -979,6 +997,7 @@ class SugarBean
 
             $order_by = $parentbean->process_order_by($order_by, $submodule, $suppress_table_name);
             if (!empty($order_by)) {
+		$final_query  = self::removeEdgeParentheses($final_query);
                 $final_query .= ' ORDER BY ' . $order_by;
             }
         }
