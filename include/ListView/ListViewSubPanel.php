@@ -306,6 +306,17 @@ if (!defined('sugarEntry') || !sugarEntry) {
                     }
                 }
                 $fields = $aItem->get_list_view_data();
+
+                if($this_subpanel->is_fill_in_additional_fields()){
+                    foreach ($subpanel_def->panel_definition['list_fields'] as $listed_field => $value){
+                        $key = strtoupper($listed_field);
+                        if(!key_exists($key,$fields) && property_exists($aItem,$listed_field)){
+                            $fields[$key] = $aItem->$listed_field;
+                        }
+                    }
+                }
+
+
                 if (isset($processed_ids[$aItem->id])) {
                     continue;
                 } else {
