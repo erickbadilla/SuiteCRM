@@ -995,7 +995,10 @@ class SugarBean
                 $order_by .= ' ' . $sort_order;
             }
 
-            $order_by = $parentbean->process_order_by($order_by, $submodule, $suppress_table_name);
+            if (empty($shortcut_function_name)){
+                $order_by = $parentbean->process_order_by($order_by, $submodule, $suppress_table_name);
+            }
+
             if (!empty($order_by)) {
 		$final_query  = self::removeEdgeParentheses($final_query);
                 $final_query .= ' ORDER BY ' . $order_by;
