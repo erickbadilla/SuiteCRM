@@ -230,4 +230,7 @@ $mod_strings = array(
     'LBL_LOADING' => 'Loading' /*for 508 compliance fix*/,
     'LBL_EDIT_INLINE' => 'Edit' /*for 508 compliance fix*/,
     'LBL_FP_EVENTS_LEADS_1_FROM_FP_EVENTS_TITLE' => 'Events',
+    // CUSTOM
+    'LBL_INTERESTED' => 'Interested in:',
+    'LBL_PRIORITY' => 'Priority:',
 );
