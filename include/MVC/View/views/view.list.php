@@ -345,9 +345,15 @@ class ViewList extends SugarView
 
             $where_clauses = $this->searchForm->generateSearchWhere(true, $this->seed->module_dir);
 
-            if (count($where_clauses) > 0) {
-                $this->where = '(' . implode(' ) AND ( ', $where_clauses) . ')';
+            $operator = "AND";
+            if(isset($_REQUEST['customSearch']) && $_REQUEST['customSearch']=="OR"){
+                $operator = "OR";
             }
+
+            if (count($where_clauses) > 0) {
+                $this->where = '(' . implode(' ) '.$operator.' ( ', $where_clauses) . ')';
+            }
+
             $GLOBALS['log']->info("List View Where Clause: $this->where");
         }
         if ($this->use_old_search) {
