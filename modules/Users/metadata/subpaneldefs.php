@@ -156,7 +156,7 @@ global $modules_exempt_from_availability_check;
 $modules_exempt_from_availability_check['SecurityGroups'] = 'SecurityGroups';
 
 $layout_defs['Users']['subpanel_setup']['securitygroups'] = array(
-    'top_buttons' => array(array('widget_class' => 'SubPanelTopSelectButton', 'popup_module' => 'SecurityGroups', 'mode' => 'MultiSelect'),),
+    'top_buttons' => array(),
     'order' => 100,
     'sort_by' => 'name',
     'sort_order' => 'asc',
