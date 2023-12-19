@@ -190,7 +190,9 @@ function smarty_function_sugar_action_menu($params, &$smarty)
     }
 
     if (is_array($params['buttons'])) {
-        return '<div class="action_buttons">' . implode_r(' ', $params['buttons'], true).'<div class="clear"></div></div>';
+        // Remove duplicates
+        $buttonsUniqueArray = array_unique($params['buttons']);
+        return '<div class="action_buttons">' . implode_r(' ', $buttonsUniqueArray, true).'<div class="clear"></div></div>';
     } else if(is_array($params)) {
         return '<div class="action_buttons">' . implode_r(' ', $params, true).'<div class="clear"></div></div>';
     }
