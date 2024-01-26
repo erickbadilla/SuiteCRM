@@ -17,9 +17,9 @@ div.p_login #loginform .form-signin .input-group #password_icon {
 }
 
 div.p_login #loginform .form-signin .input-group input {
-	background-image: unset;
-	background-position: unset;
-	background-repeat: unset;
+	background-image: unset !important;
+	background-position: unset !important;
+	background-repeat: unset !important;
 	padding: unset;
 	padding-left: 8px;
 	width: 330px !important;
