@@ -136,6 +136,7 @@ $dictionary['AOS_Products_Quotes'] = array(
             'audited' => 0,
             'reportable' => true,
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_cost_price_usdollar' => array(
             'name' => 'product_cost_price_usdollar',
@@ -152,6 +153,7 @@ $dictionary['AOS_Products_Quotes'] = array(
                 'quickcreate' => false,
             ),
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_list_price' => array(
             'required' => false,
@@ -167,6 +169,7 @@ $dictionary['AOS_Products_Quotes'] = array(
             'audited' => 1,
             'reportable' => true,
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_list_price_usdollar' => array(
             'name' => 'product_list_price_usdollar',
@@ -183,6 +186,7 @@ $dictionary['AOS_Products_Quotes'] = array(
                 'quickcreate' => false,
             ),
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_discount' => array(
             'required' => false,
@@ -198,6 +202,7 @@ $dictionary['AOS_Products_Quotes'] = array(
             'audited' => 1,
             'reportable' => true,
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_discount_usdollar' => array(
             'name' => 'product_discount_usdollar',
@@ -214,6 +219,7 @@ $dictionary['AOS_Products_Quotes'] = array(
                 'quickcreate' => false,
             ),
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_discount_amount' => array(
             'required' => false,
@@ -229,6 +235,7 @@ $dictionary['AOS_Products_Quotes'] = array(
             'audited' => 1,
             'reportable' => true,
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_discount_amount_usdollar' => array(
             'name' => 'product_discount_amount_usdollar',
@@ -245,6 +252,7 @@ $dictionary['AOS_Products_Quotes'] = array(
                 'quickcreate' => false,
             ),
             'len' => '26,6',
+            'precision' => 6
          ),
         'discount' => array(
             'required' => false,
@@ -279,6 +287,7 @@ $dictionary['AOS_Products_Quotes'] = array(
             'audited' => 1,
             'reportable' => true,
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_unit_price_usdollar' => array(
             'name' => 'product_unit_price_usdollar',
@@ -295,6 +304,7 @@ $dictionary['AOS_Products_Quotes'] = array(
                 'quickcreate' => false,
             ),
             'len' => '26,6',
+            'precision' => 6
          ),
         'vat_amt' => array(
             'required' => '1',
@@ -310,6 +320,7 @@ $dictionary['AOS_Products_Quotes'] = array(
             'audited' => 1,
             'reportable' => true,
             'len' => '26,6',
+            'precision' => 6
          ),
         'vat_amt_usdollar' => array(
             'name' => 'vat_amt_usdollar',
@@ -326,6 +337,7 @@ $dictionary['AOS_Products_Quotes'] = array(
                 'quickcreate' => false,
             ),
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_total_price' => array(
             'required' => '1',
@@ -341,6 +353,7 @@ $dictionary['AOS_Products_Quotes'] = array(
             'audited' => 1,
             'reportable' => true,
             'len' => '26,6',
+            'precision' => 6
          ),
         'product_total_price_usdollar' => array(
             'name' => 'product_total_price_usdollar',
@@ -357,6 +370,7 @@ $dictionary['AOS_Products_Quotes'] = array(
                 'quickcreate' => false,
             ),
             'len' => '26,6',
+            'precision' => 6
          ),
         'vat' => array(
             'required' => false,
@@ -534,3 +548,4 @@ $dictionary['AOS_Products_Quotes'] = array(
 );
 require_once('include/SugarObjects/VardefManager.php');
 VardefManager::createVardef('AOS_Products_Quotes', 'AOS_Products_Quotes', array('basic', 'assignable'));
+

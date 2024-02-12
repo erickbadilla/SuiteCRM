@@ -272,6 +272,7 @@ $dictionary['AOS_Invoices'] = array(
                 'audited' => 1,
                 'reportable' => true,
                 'len' => '26,6',
+                'precision' => 6
             ),
         'total_amt_usdollar' =>
             array(
@@ -289,6 +290,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
         'subtotal_amount' =>
             array(
@@ -305,6 +307,7 @@ $dictionary['AOS_Invoices'] = array(
                 'audited' => 1,
                 'reportable' => true,
                 'len' => '26,6',
+                'precision' => 6
             ),
         'subtotal_amount_usdollar' =>
             array(
@@ -322,6 +325,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
         'discount_amount' =>
             array(
@@ -338,6 +342,7 @@ $dictionary['AOS_Invoices'] = array(
                 'audited' => 1,
                 'reportable' => true,
                 'len' => '26,6',
+                'precision' => 6
             ),
         'discount_amount_usdollar' =>
             array(
@@ -355,6 +360,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
         'tax_amount' =>
             array(
@@ -371,6 +377,7 @@ $dictionary['AOS_Invoices'] = array(
                 'audited' => 1,
                 'reportable' => true,
                 'len' => '26,6',
+                'precision' => 6
             ),
         'tax_amount_usdollar' =>
             array(
@@ -388,6 +395,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
         'shipping_amount' =>
             array(
@@ -404,6 +412,7 @@ $dictionary['AOS_Invoices'] = array(
                 'audited' => 0,
                 'reportable' => true,
                 'len' => '26,6',
+                'precision' => 6
             ),
         'shipping_amount_usdollar' =>
             array(
@@ -421,6 +430,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
         'shipping_tax' =>
             array(
@@ -463,6 +473,7 @@ $dictionary['AOS_Invoices'] = array(
                         'returns' => 'html',
                         'include' => 'modules/AOS_Products_Quotes/Line_Items.php'
                     ),
+                'precision' => 6
             ),
         'shipping_tax_amt_usdollar' =>
             array(
@@ -480,6 +491,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
         'total_amount' =>
             array(
@@ -498,6 +510,7 @@ $dictionary['AOS_Invoices'] = array(
                 'len' => '26,6',
                 'enable_range_search' => true,
                 'options' => 'numeric_range_search_dom',
+                'precision' => 6
             ),
         'total_amount_usdollar' =>
             array(
@@ -515,6 +528,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
         'currency_id' =>
             array(
@@ -661,6 +675,7 @@ $dictionary['AOS_Invoices'] = array(
                 'audited' => 1,
                 'reportable' => true,
                 'len' => '26,6',
+                'precision' => 6
             ),
         'subtotal_tax_amount_usdollar' =>
             array(
@@ -678,6 +693,7 @@ $dictionary['AOS_Invoices'] = array(
                     'quickcreate' => false,
                 ),
                 'len' => '26,6',
+                'precision' => 6
             ),
 
         'accounts' =>
@@ -758,3 +774,4 @@ $dictionary['AOS_Invoices'] = array(
 );
 require_once('include/SugarObjects/VardefManager.php');
 VardefManager::createVardef('AOS_Invoices', 'AOS_Invoices', array('basic', 'assignable', 'security_groups'));
+
