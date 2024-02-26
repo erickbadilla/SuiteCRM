@@ -160,16 +160,19 @@ class aSubPanel
                 $GLOBALS['log']->fatal("Failed to load original or custom subpanel data for $name in $def_path");
                 $this->canDisplay = false;
             }
+	    try{
+	            // load module info from the module's bean file
+        	    $this->load_module_info();
 
-            // load module info from the module's bean file
-            $this->load_module_info();
-
-            // check that the loaded subpanel definition includes a $subpanel_layout section - some, such as
-            // projecttasks/default do not...
-            $this->panel_definition = array();
-            if (isset($subpanel_layout) && is_array($subpanel_layout)) {
-                $this->set_panel_definition($subpanel_layout);
-            }
+	            // check that the loaded subpanel definition includes a $subpanel_layout section - some, such as
+        	    // projecttasks/default do not...
+	            $this->panel_definition = array();
+        	    if (isset($subpanel_layout) && is_array($subpanel_layout)) {
+                	$this->set_panel_definition($subpanel_layout);
+               	    }
+	   } catch (Exception $e){
+		$GLOBALS['log']->fatal("Failed to load module info for custom subpanel data for $name in $def_path");
+           }
         }
     }
 
