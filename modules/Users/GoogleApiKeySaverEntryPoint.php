@@ -117,8 +117,8 @@ class GoogleApiKeySaverEntryPoint
         $this->validateConfig($config);
         $this->client->setAuthConfig($config);
         $this->client->setAccessType('offline');
-        $this->client->setApprovalPrompt('force');
-
+        //$this->client->setApprovalPrompt('force');
+	$this->client->setPrompt('consent');
         $this->handleRequest();
     }
     
