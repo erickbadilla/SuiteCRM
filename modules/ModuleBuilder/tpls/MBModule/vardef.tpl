@@ -38,6 +38,8 @@
  * display the words "Powered by SugarCRM" and "Supercharged by SuiteCRM".
  */
 
+global $dictionary;
+
 $dictionary['{{$class.name}}'] = array(
     'table' => '{{$class.table_name}}',
     'audited' => {{$class.audited}},
