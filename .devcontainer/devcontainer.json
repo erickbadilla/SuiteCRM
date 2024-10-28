@@ -2,7 +2,7 @@
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.245.2/containers/php-mariadb
 // Update the VARIANT arg in docker-compose.yml to pick a PHP version
 {
-	"name": "PHP & MariaDB",
+	"name": "Suite CRM Docker",
 	"dockerComposeFile": "docker-compose.yml",
 	"service": "suitecrm",
 	"workspaceFolder": "/var/www/html/suitecrm",
@@ -13,11 +13,20 @@
 		"vscode": {
 			// Add the IDs of extensions you want installed when the container is created.
 			"extensions": [
-				"xdebug.php-debug"
+				"xdebug.php-debug", // Xdebug
+				"eamodio.gitlens", // Gitlens
+				"kokororin.vscode-phpfmt", // PHP Formatter
+				"bmewburn.vscode-intelephense-client", // PHP Intellisense
+				"neilbrayfield.php-docblocker", // Documentation tags
+				"aswinkumar863.smarty-template-support", // Smarty
+				"st-pham.php-refactor-tool", // OOP Refactor
+				"streetsidesoftware.code-spell-checker" // Spell checker
 			]
 		}
 	},
-
+	"runArgs": [
+        "--env-file", "${localWorkspaceFolder}/.devcontainer/.env"
+    ], 
 	// For use with PHP or Apache (e.g.php -S localhost:8080 or apache2ctl start)
 	"forwardPorts": [80, 3306],
 	// Adding git safe directories so it can be used inside the containers
