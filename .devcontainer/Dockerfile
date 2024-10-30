@@ -38,14 +38,14 @@ RUN chmod +x /usr/local/bin/entrypoint.sh
 COPY . /var/www/html/suitecrm
 WORKDIR /var/www/html/suitecrm
 RUN git config core.fileMode false && \
+    git rm careers-suitecrm && \
     git clone git@bitbucket.org:cecropiasolutions/careers-suitecrm.git careers-suitecrm && \
     cd careers-suitecrm && \
     git fetch && git checkout dev && \
     git config core.fileMode false
-
-# Create custom directory and link it to the careers-suitecrm/custom directory
-RUN ln -s /var/www/html/suitecrm/careers-suitecrm/custom /var/www/html/suitecrm/custom
-
+# Create custom directory and link it to the careers-suitecrm/custom directory and create cache directory
+RUN mkdir -p cache && \
+    ln -s /var/www/html/suitecrm/careers-suitecrm/custom /var/www/html/suitecrm/custom
 # Set permissions
 RUN chown -R www-data:www-data . && \
     chmod -R 755 . && \

@@ -56,7 +56,6 @@ git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_USER_EMAIL}"
 
 echo "Adding the right permissions to the SuiteCRM directory..."
-mkdir -p "$SUITECRM_DIR/cache"
 chown -R www-data:www-data "$SUITECRM_DIR"
 chmod -R 755 "$SUITECRM_DIR"
 chmod -R 775 "$SUITECRM_DIR/cache" "$SUITECRM_DIR/custom" "$SUITECRM_DIR/modules" "$SUITECRM_DIR/themes" "$SUITECRM_DIR/data" "$SUITECRM_DIR/upload"
