@@ -6,7 +6,7 @@ LOG_FILE="/var/www/html/suitecrm/entrypoint.log"
 SUITECRM_DIR="/var/www/html/suitecrm"
 
 # Required environment variables
-REQUIRED_VARS=("MARIADB_ROOT_PASSWORD" "MARIADB_PORT_NUMBER" "MARIADB_DATABASE")
+REQUIRED_VARS=("MARIADB_ROOT_PASSWORD" "MARIADB_PORT_NUMBER" "MARIADB_DATABASE" "GIT_USER_NAME" "GIT_USER_EMAIL" "MARIADB_BACKUP_FILE")
 
 # Check if each required environment variable is set
 for var in "${REQUIRED_VARS[@]}"; do
@@ -36,11 +36,11 @@ if [ ! -d "$SUITECRM_DIR/vendor" ]; then
 
     # Restore database backup
     echo "Restoring database backup..."
-    BACKUP_FILE="$SUITECRM_DIR/.devcontainer/config/admin_developdb.sql.gz"
+    BACKUP_FILE="$SUITECRM_DIR/.devcontainer/config/db/$MARIADB_BACKUP_FILE"
 
     # Check if the backup file exists
     if [ ! -f "$BACKUP_FILE" ]; then
-        echo "The backup file admin_developdb.sql.gz doesn't exist in .devcontainer/config directory. Exiting."
+        echo "The backup file $MARIADB_BACKUP_FILE doesn't exist in .devcontainer/config/db directory. Exiting."
         exit 1
     fi
 
@@ -51,6 +51,17 @@ if [ ! -d "$SUITECRM_DIR/vendor" ]; then
     fi
     echo "Database backup restored."
 fi
+
+git config --global user.name "${GIT_USER_NAME}"
+git config --global user.email "${GIT_USER_EMAIL}"
+
+echo "Adding the right permissions to the SuiteCRM directory..."
+mkdir -p "$SUITECRM_DIR/cache"
+chown -R www-data:www-data "$SUITECRM_DIR"
+chmod -R 755 "$SUITECRM_DIR"
+chmod -R 775 "$SUITECRM_DIR/cache" "$SUITECRM_DIR/custom" "$SUITECRM_DIR/modules" "$SUITECRM_DIR/themes" "$SUITECRM_DIR/data" "$SUITECRM_DIR/upload"
+chmod 775 "$SUITECRM_DIR/config_override.php" 2>/dev/null
+echo "Finished adding the right permissions to the SuiteCRM directory."
 
 # Start Apache in the foreground
 echo "Starting Apache..."
