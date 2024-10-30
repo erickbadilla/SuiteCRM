@@ -51,6 +51,18 @@ RUN chown -R www-data:www-data . && \
     chmod -R 755 . && \
     chmod -R 775 ./custom ./modules ./themes ./data ./upload && \
     chmod 775 ./config_override.php 2>/dev/null
+
+# Generate SSL keys for OAuth2 if private key does not exist
+RUN if [ ! -f /var/www/html/suitecrm/Api/V8/OAuth2/private.key ]; then \
+    openssl genrsa -out /var/www/html/suitecrm/Api/V8/OAuth2/private.key 2048 && \
+    openssl rsa -in /var/www/html/suitecrm/Api/V8/OAuth2/private.key -pubout -out /var/www/html/suitecrm/Api/V8/OAuth2/public.key; \
+    fi && \
+    # Set ownership and permissions for SSL keys
+    if [ -f /var/www/html/suitecrm/Api/V8/OAuth2/private.key ]; then \
+    chown www-data:www-data /var/www/html/suitecrm/Api/V8/OAuth2/*.key && \
+    chmod 600 /var/www/html/suitecrm/Api/V8/OAuth2/*.key; \
+    fi
+
 # Enable Apache modules and configure site
 COPY ./.devcontainer/config/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY ./.devcontainer/config/.htaccess /var/www/html/.htaccess
