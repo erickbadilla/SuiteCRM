@@ -56,10 +56,11 @@ git config --global user.name "${GIT_USER_NAME}"
 git config --global user.email "${GIT_USER_EMAIL}"
 
 echo "Adding the right permissions to the SuiteCRM directory..."
-chown -R www-data:www-data "$SUITECRM_DIR"
-chmod -R 755 "$SUITECRM_DIR"
-chmod -R 775 "$SUITECRM_DIR/cache" "$SUITECRM_DIR/custom" "$SUITECRM_DIR/modules" "$SUITECRM_DIR/themes" "$SUITECRM_DIR/data" "$SUITECRM_DIR/upload"
-chmod 775 "$SUITECRM_DIR/config_override.php" 2>/dev/null
+chown -R www-data:www-data "$SUITECRM_DIR" && \
+find "$SUITECRM_DIR" -type d -exec chmod 775 {} + && \
+find "$SUITECRM_DIR" -type f -exec chmod 755 {} + && \
+chmod 775 "$SUITECRM_DIR/cache" "$SUITECRM_DIR/custom" "$SUITECRM_DIR/modules" "$SUITECRM_DIR/themes" "$SUITECRM_DIR/data" "$SUITECRM_DIR/upload" && \
+chmod 775 "$SUITECRM_DIR/config_override.php" 2>/dev/null && \
 echo "Finished adding the right permissions to the SuiteCRM directory."
 
 # Start Apache in the foreground

@@ -1,15 +1,39 @@
 FROM ubuntu/apache2:2.4-22.04_beta
 
-# Fix missing Apache configuration
-RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
+# Use non-interactive frontend to avoid prompts during installation
+ENV DEBIAN_FRONTEND=noninteractive
+
+# Add Ondřej Surý’s PHP PPA key and repository
+RUN apt-get update -y -o Acquire::AllowInsecureRepositories=true -o Acquire::AllowDowngradeToInsecureRepositories=true && \
+    apt-get install -y --no-install-recommends software-properties-common gnupg && \
+    gpg --keyserver keyserver.ubuntu.com --recv-keys E5267A6C && \
+    gpg --export --armor E5267A6C | tee /etc/apt/trusted.gpg.d/ondrej_php.gpg > /dev/null && \
+    add-apt-repository -y ppa:ondrej/php && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Update and install OS dependencies
-RUN apt update -y && \
-    apt install -y mariadb-client software-properties-common git unzip openssh-client && \
-    add-apt-repository -y ppa:ondrej/php && \
-    apt install -y php7.4-xdebug php7.4 php7.4-curl php7.4-gd php7.4-zip php7.4-imap php7.4-mbstring php7.4-intl php7.4-simplexml php7.4-dom php7.4-mysql && \
+RUN apt-get update -y && \
+    apt-get install -y --no-install-recommends \
+    mariadb-client \
+    git \
+    unzip \
+    openssh-client \
+    php7.4-xdebug \
+    php7.4 \
+    php7.4-curl \
+    php7.4-gd \
+    php7.4-zip \
+    php7.4-imap \
+    php7.4-mbstring \
+    php7.4-intl \
+    php7.4-simplexml \
+    php7.4-dom \
+    php7.4-mysql && \
     update-alternatives --set php /usr/bin/php7.4 && \
-    apt clean && rm -rf /var/lib/apt/lists/*
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Set  Apache configuration
+RUN echo "ServerName localhost" >> /etc/apache2/apache2.conf
 
 # Set PHP configuration
 RUN echo "upload_max_filesize=200M" >> /etc/php/7.4/apache2/php.ini
@@ -35,21 +59,28 @@ COPY ./.devcontainer/entrypoint.sh /usr/local/bin/entrypoint.sh
 RUN chmod +x /usr/local/bin/entrypoint.sh
 
 # Download and configure SuiteCRM
-COPY . /var/www/html/suitecrm
 WORKDIR /var/www/html/suitecrm
+# Copies the entire project to the container
+COPY . .
+# Copy config files to root of the project
+COPY ./.devcontainer/config/config_override.php ./.devcontainer/config/config.php ./
+
 RUN git config core.fileMode false && \
     git rm careers-suitecrm && \
     git clone git@bitbucket.org:cecropiasolutions/careers-suitecrm.git careers-suitecrm && \
     cd careers-suitecrm && \
     git fetch && git checkout dev && \
     git config core.fileMode false
+
 # Create custom directory and link it to the careers-suitecrm/custom directory and create cache directory
 RUN mkdir -p cache && \
     ln -s /var/www/html/suitecrm/careers-suitecrm/custom /var/www/html/suitecrm/custom
 # Set permissions
 RUN chown -R www-data:www-data . && \
-    chmod -R 755 . && \
-    chmod -R 775 ./custom ./modules ./themes ./data ./upload && \
+    find . -type d -exec chmod 755 {} + && \
+    find . -type f -exec chmod 755 {} + && \
+    find ./custom ./modules ./themes ./data ./upload -type d -exec chmod 775 {} + && \
+    find ./custom ./modules ./themes ./data ./upload -type f -exec chmod 775 {} + && \
     chmod 775 ./config_override.php 2>/dev/null
 
 # Generate SSL keys for OAuth2 if private key does not exist

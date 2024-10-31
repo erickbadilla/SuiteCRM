@@ -125,19 +125,18 @@ $sugar_config = array (
     'm.d.Y' => '12.23.2010',
   ),
   'datef' => 'm/d/Y',
-  'dbconfig' => 
-  array (
-    'db_host_name' => 'localhost',
+  'dbconfig' => array(
+    'db_host_name' => 'mariadb', // Same as in docker-compose.yml service name
     'db_host_instance' => 'SQLEXPRESS',
-    'db_user_name' => 'suitecrm',
-    'db_password' => 'Britania20#',
-    'db_name' => 'admin_developdb',
+    'db_user_name' => 'root',
+    'db_password' => getenv("MARIADB_ROOT_PASSWORD"),
+    'db_name' => getenv("MARIADB_DATABASE"),
     'db_type' => 'mysql',
-    'db_port' => '',
+    'db_port' => getenv("MARIADB_PORT_NUMBER"),
     'db_manager' => 'MysqliManager',
     'collation' => 'utf8mb4_general_ci',
     'charset' => 'utf8mb4',
-  ),
+),
   'dbconfigoption' => 
   array (
     'persistent' => true,
