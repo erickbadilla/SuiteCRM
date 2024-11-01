@@ -1,34 +1,42 @@
-version: '3'
+name: suitecrm-cecropia-devcontainer
+
 services:
-  # Use the database service name as host in the suitecrm installation
   mariadb:
-    image: docker.io/bitnami/mariadb:10.6
+    image: bitnami/mariadb:10.6
     networks:
       - main_network
     ports:
-      - '3306:3306'
+      - "${MARIADB_OUT_PORT}:${MARIADB_PORT_NUMBER}"
     environment:
-      # ALLOW_EMPTY_PASSWORD is recommended only for development.
-      - ALLOW_EMPTY_PASSWORD=yes
-      - MARIADB_USER=${MARIADB_USER}
-      - MARIADB_DATABASE=${MARIADB_DATABASE}
+      MARIADB_USER: ${MARIADB_USER}
+      MARIADB_PASSWORD: ${MARIADB_PASSWORD}
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_PORT_NUMBER: ${MARIADB_PORT_NUMBER}
     volumes:
-      - ${PWD}/.devcontainer/database:/bitnami/mariadb
+      - mariadb_data:/bitnami/mariadb
+
   suitecrm:
     build:
-      context: .
-    command: sh -c "composer install --no-dev --no-interaction --working-dir=/var/www/html/suitecrm; exec apache2-foreground"
+      context: ../
+      dockerfile: ./.devcontainer/Dockerfile
+    entrypoint: ["/usr/local/bin/entrypoint.sh"]
     networks:
       - main_network
+    environment:
+      MARIADB_DATABASE: ${MARIADB_DATABASE}
+      MARIADB_ROOT_PASSWORD: ${MARIADB_ROOT_PASSWORD}
+      MARIADB_PORT_NUMBER: ${MARIADB_PORT_NUMBER}
+      MARIADB_BACKUP_FILE: ${MARIADB_BACKUP_FILE}
+      GIT_USER_NAME: ${GIT_USER_NAME}
+      GIT_USER_EMAIL: ${GIT_USER_EMAIL}
     ports:
-      - '80:80'
-    volumes:
-      - ${PWD}:/var/www/html/suitecrm
-      - ${PWD}/.devcontainer/config/php.ini:/etc/php/7.4/apache2/php.ini
-      - ${PWD}/.devcontainer/logs:/var/log/apache2
-      - /var/www/html/suitecrm/.devcontainer/database # Exclude database directory
+      - "${SUITECRM_OUT_PORT}:80"
     depends_on:
       - mariadb
 
 networks:
   main_network:
+
+volumes:
+  mariadb_data:

@@ -140,3 +140,6 @@ codeception.yml
 
 # Ignore database folder
 database/
+
+ssh-keys
+admin_developdb.sql.gz
