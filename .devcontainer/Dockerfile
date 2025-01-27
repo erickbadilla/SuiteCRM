@@ -98,3 +98,12 @@ RUN if [ ! -f /var/www/html/suitecrm/Api/V8/OAuth2/private.key ]; then \
 COPY ./.devcontainer/config/000-default.conf /etc/apache2/sites-available/000-default.conf
 COPY ./.devcontainer/config/.htaccess /var/www/html/.htaccess
 RUN a2enmod rewrite
+
+# Adds xDebug configuration
+RUN echo "zend_extension=xdebug.so" >> /etc/php/7.4/mods-available/xdebug.ini && \
+    echo "xdebug.mode=debug" >> /etc/php/7.4/mods-available/xdebug.ini && \
+    echo "xdebug.start_with_request=trigger" >> /etc/php/7.4/mods-available/xdebug.ini && \
+    echo "xdebug.client_port=9003" >> /etc/php/7.4/mods-available/xdebug.ini && \
+    echo "xdebug.discover_client_host=true" >> /etc/php/7.4/mods-available/xdebug.ini && \
+    echo "xdebug.idekey=VSCODE" >> /etc/php/7.4/mods-available/xdebug.ini
+    
