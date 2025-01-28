@@ -66,7 +66,7 @@ COPY . .
 COPY ./.devcontainer/config/config_override.php ./.devcontainer/config/config.php ./
 
 RUN git config core.fileMode false && \
-    git rm careers-suitecrm && \
+    rm -r careers-suitecrm && \
     git clone git@bitbucket.org:cecropiasolutions/careers-suitecrm.git careers-suitecrm && \
     cd careers-suitecrm && \
     git fetch && git checkout dev && \
@@ -96,8 +96,8 @@ RUN if [ ! -f /var/www/html/suitecrm/Api/V8/OAuth2/private.key ]; then \
 
 # Enable Apache modules and configure site
 COPY ./.devcontainer/config/000-default.conf /etc/apache2/sites-available/000-default.conf
-COPY ./.devcontainer/config/.htaccess /var/www/html/.htaccess
-RUN a2enmod rewrite
+COPY ./.devcontainer/config/.htaccess /var/www/html/suitecrm/.htaccess
+RUN a2enmod rewrite && a2enmod headers
 
 # Adds xDebug configuration
 RUN echo "zend_extension=xdebug.so" >> /etc/php/7.4/mods-available/xdebug.ini && \
@@ -106,4 +106,3 @@ RUN echo "zend_extension=xdebug.so" >> /etc/php/7.4/mods-available/xdebug.ini &&
     echo "xdebug.client_port=9003" >> /etc/php/7.4/mods-available/xdebug.ini && \
     echo "xdebug.discover_client_host=true" >> /etc/php/7.4/mods-available/xdebug.ini && \
     echo "xdebug.idekey=VSCODE" >> /etc/php/7.4/mods-available/xdebug.ini
-    

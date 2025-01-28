@@ -2,8 +2,8 @@
 set -e  # Exit immediately if a command exits with a non-zero status
 
 # Define log file location
-LOG_FILE="/var/www/html/suitecrm/entrypoint.log"
 SUITECRM_DIR="/var/www/html/suitecrm"
+LOG_FILE="$SUITECRM_DIR/.devcontainer/logs"
 
 # Required environment variables
 REQUIRED_VARS=("MARIADB_ROOT_PASSWORD" "MARIADB_PORT_NUMBER" "MARIADB_DATABASE" "GIT_USER_NAME" "GIT_USER_EMAIL" "MARIADB_BACKUP_FILE")
