@@ -140,6 +140,27 @@ codeception.yml
 
 # Ignore database folder
 database/
+.devcontainer/.env
+.devcontainer/config/db/*
+.devcontainer/config/ssh-keys/*
 
-ssh-keys
-admin_developdb.sql.gz
+# Ignores our custom modules being tracked
+# Include directories that have an underscore in the name and match the pattern
+# Removes indexes of the form modules/*_*/*
+# find ./modules/ -type d -name '*_*' | grep -vE '/(AM_|AOBH_|AOD_|AOK_|AOP_|AOR_|AOS_|AOW_|AOS_PDF_|Calls_|Reminders_|FP_|jjwg_)' | sed 's|//|/|g' | xargs -I {} git rm --cached -r {}
+modules/*_*/*
+
+# Exclude native module folders that start with these prefixes
+!modules/AM_*/**
+!modules/AOBH_*/**
+!modules/AOD_*/**
+!modules/AOK_*/**
+!modules/AOP_*/**
+!modules/AOR_*/**
+!modules/AOS_*/**
+!modules/AOS_PDF_*/**
+!modules/AOW_*/**
+!modules/Calls_*/**
+!modules/Reminders_*/**
+!modules/FP_*/**
+!modules/jjwg_*/**
